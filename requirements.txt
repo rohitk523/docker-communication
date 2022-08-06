@@ -1,0 +1,13 @@
+fastapi
+uvicorn
+sqlalchemy
+requests
+sqlmodel
+python-jose
+passlib
+bcrypt
+python-multipart
+nltk
+alembic
+PyJWT
+psycopg2
