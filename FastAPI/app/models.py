@@ -1,6 +1,6 @@
-from typing import List
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
+
 from .db_database import Base
 
 
@@ -30,7 +30,5 @@ class User(Base):
     uuid = Column(String, primary_key=True, index=True)
     username = Column(String)
 
-    textFiles = relationship('file_data', back_populates='creator')
-    keywords = relationship('keywords', back_populates='creator')
-
-    
+    textFiles = relationship("file_data", back_populates="creator")
+    keywords = relationship("keywords", back_populates="creator")

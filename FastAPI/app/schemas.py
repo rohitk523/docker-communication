@@ -1,34 +1,35 @@
-from typing import List
-from unicodedata import name
+from typing import List, Union
+
 from pydantic import BaseModel
-from typing import Union
 
 
 class User(BaseModel):
     username: str
 
+
 class filedata(BaseModel):
-    filename :str
-    length : int
-    class Config():
+    filename: str
+    length: int
+
+    class Config:
         orm_mode = True
+
 
 class ShowUser(BaseModel):
     username: str
     textFiles: List[filedata] = []
-    class Config():
+
+    class Config:
         orm_mode = True
 
 
 class Showfile(BaseModel):
     filename: str
-    length : int
-    creator : ShowUser
-    class Config():
+    length: int
+    creator: ShowUser
+
+    class Config:
         orm_mode = True
-
-
-
 
 
 class Token(BaseModel):
@@ -43,4 +44,3 @@ class TokenData(BaseModel):
 class Login(BaseModel):
     username: str
     password: str
-
