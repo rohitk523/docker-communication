@@ -7,14 +7,16 @@ WORKDIR /code
 # 
 COPY ./requirements.txt /code/requirements.txt
 
-# 
-RUN pip3 install --no-cache-dir --upgrade -r /code/requirements.txt
-
-RUN pip install pandas
-# 
-COPY ./FastAPI/app /code/app1
-COPY ./docker/app /code/app2
+#
+COPY ./test_main.py /code/test_main.py
 
 # 
-CMD ["uvicorn", "app1.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
-CMD ["uvicorn", "app2.main:app", "--host", "0.0.0.0", "--port", "8086", "--reload"]
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+# 
+COPY ./FastAPI/app /code/FastAPI/app
+COPY ./docker/app /code/docker/app
+
+# 
+CMD ["uvicorn", "FastAPI.app.main:app", "--host", "0.0.0.0", "--port", "8080", "--reload"]
+CMD ["uvicorn", "docker.app.main:app", "--host", "0.0.0.0", "--port", "8086", "--reload"]
