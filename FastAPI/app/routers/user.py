@@ -1,6 +1,6 @@
 import uuid
 
-from requests import Session
+from requests import Session  # type: ignore
 
 from fastapi import APIRouter, Depends, HTTPException, status
 

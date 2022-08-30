@@ -5,7 +5,7 @@ services:
     image: wordcount
     container_name: "word_count"
     build: .
-    command: uvicorn FastAPI.app.main:app --host 0.0.0.0 --port 8080
+    command: uvicorn TestProject.FastAPI.app.main:app --host 0.0.0.0 --port 8080
     volumes:
       - .:/usr/src/personalised_nudges
     ports:
@@ -20,7 +20,7 @@ services:
     image: text_file
     container_name: "text_file"
     build: .
-    command: uvicorn docker.app.main:app --host 0.0.0.0 --port 8086
+    command: uvicorn TestProject.docker.app.main:app --host 0.0.0.0 --port 8086
     volumes:
       - logs:/code/
     ports:

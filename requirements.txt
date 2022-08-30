@@ -8,9 +8,9 @@ passlib
 bcrypt
 python-multipart
 nltk
-alembic
 PyJWT
 psycopg2
 sentry_sdk
 pytest
 pandas
+pre-commit
